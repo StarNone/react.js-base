@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+<script src="./js/babel.js"></script>
+<script src="./js/react.js"></script>
+<script src="./js/react-dom.js"></script>
+<script type="text/babel">
+    const {Component} = React
+
+    class Clock extends Component {
+        constructor (props) {
+            super(props)
+        }
+        
+        render () {
+            return (
+                <div>
+                    <h1>今天是星期{this.props.day}</h1>
+                </div>
+            )
+        }
+    }
+
+    class Container extends Component {
+        constructor(props) {
+            super(props)
+            this.state = {
+                day: new Date().getDay()
+            }
+        }
+
+        changeDay () {
+            this.setState({
+                day: 3
+            })
+        }
+
+        render () {
+            return (
+                <div>
+                    <h1>这是一个显示星期的页面</h1>
+                    <button onClick={this.changeDay.bind(this)}>改变时间</button>
+                    <Clock day={this.state.day} />
+                    <Clock day={this.state.day} />
+                </div>
+            )
+        }
+    }
+
+    ReactDOM.render(<Container />, document.getElementById('root'))
+</script>
+</html>

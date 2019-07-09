@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+<script src="./js/babel.js"></script>
+<script src="./js/react.js"></script>
+<script src="./js/react-dom.js"></script>
+<script type="text/babel">
+
+    const arr = [
+        {
+            title: '星期一',
+            num: '22号'
+        },
+        {
+            title: '星期二',
+            num: '23号'
+        },
+        {
+            title: '星期三',
+            num: '24号'
+        },
+        {
+            title: '星期四',
+            num: '25号'
+        },
+        {
+            title: '星期五',
+            num: '26号'
+        }
+    ]
+
+    const {Component} = React
+
+    class Container extends Component {
+        constructor(props) {
+            super(props);
+        }
+        
+        render () {
+            return (
+                <div>
+                    <h1>周历</h1>
+                    <ul>
+                    {
+                        arr.map((item, index) => (
+                            <LiItem key={index}>
+                                <h2>{item.title}</h2>
+                                <p>{item.num}</p>    
+                            </LiItem>   
+                        ))
+                    }
+                    </ul>
+                </div>
+            )
+        }
+    }
+
+    class LiItem extends Component {
+        constructor(props) {
+            super(props)
+        }
+        
+        render () {
+            return (
+                <li>{this.props.children}</li>
+            )
+        }
+    }
+    
+    
+    ReactDOM.render(<Container />, document.getElementById('root'))
+
+</script>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+<script src="./js/babel.js"></script>
+<script src="./js/react.js"></script>
+<script src="./js/react-dom.js"></script>
+<script type="text/babel">
+    // const date = new Date()
+    // const day = date.getDay()
+    // const element = (
+    //     <h1>今天是星期{day}</h1>
+    // )
+    // ReactDOM.render(element, document.getElementById('root'))
+
+    function Element (props) {
+        console.log(props)
+        return (
+            <h1>今天是星期{props.day}</h1>
+        )
+    }
+
+    function Container () {
+        const date = new Date()
+        let day = date.getDay()
+
+        function changeDate() {
+            day = 3
+            console.log(day)
+        }
+
+        console.log(day)
+
+        return (
+            <div>
+                <button onClick={changeDate}>调整时间</button>
+                <h1>这是描述时间的组件</h1>
+                <Element day={day} abc="111" />
+                <Element day={day} />
+            </div>
+        )
+    }
+
+    ReactDOM.render(<Container />, document.getElementById('root'))
+</script>
+</html>

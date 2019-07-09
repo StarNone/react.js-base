@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+<script src="./js/babel.js"></script>
+<script src="./js/react.js"></script>
+<script src="./js/react-dom.js"></script>
+<script type="text/babel">
+    const str = '我是字符串'
+    const num = 1
+    const none = String(undefined)
+
+    const person = {
+        firstName: '王',
+        lastName: '力宏'
+    }
+
+    function getFullName (firstName, lastName) {
+        return firstName + lastName
+    }
+
+    const sexNum = 1
+
+    const element = (
+        <div>
+            <ul>
+                <li>{str}</li>
+                <li>{num}</li>
+                <li>{none}</li>
+                <li>{getFullName(person.firstName,person.lastName)}</li>
+                <li>
+                    我是一个{sexNum == 1? '男人':'女人'}    
+                </li>
+            </ul>    
+        </div>
+    )
+
+    ReactDOM.render(element, document.getElementById('root'))
+</script>
+</html>

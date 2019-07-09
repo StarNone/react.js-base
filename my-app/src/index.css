@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+.active {
+  color: #f00;
+}
+
+.title {
+  text-align: center;
+  padding: 10px;
+  padding-left: 200px;
+  border-bottom: 1px solid #888;
+}
+
+aside {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 200px;
+  padding-top: 60px;
+  border-left: 1px solid #888888;
+  background: #304156;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+li {
+  border-top: 1px solid #eee;
+  padding: 10px;
+}
+
+.container {
+  padding-left: 220px;
+}

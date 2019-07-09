@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">点击</button>
+</body>
+<script>
+// 1.this永远指向调用它的函数
+// 2.this的指向只有在调用时才能知道
+// 3.箭头函数中this的指向在定义的时候就已经确定了
+// bind 改变this的指向，不执行 返回一个改变后的函数
+// call 改变this的指向， 同时执行改变后的函数
+
+
+    var name = 'window的NAME'
+
+    var obj = {
+        name: '王力宏',
+        printName (a, b, c) {
+            console.log(this.name)
+            console.log(a, b, c)
+        }
+    }
+
+    const fn = obj.printName
+    fn()
+
+    var girl = {
+        name: '陈乔恩',
+        sex: 'woman'
+    }
+
+    const fn2 = obj.printName.bind(girl, '第一个参数', '第二个参数', '第三个参数')
+    fn2()
+
+    obj.printName.call(girl, '第一个参数', '第二个参数', '第三个参数')
+
+    obj.printName.apply(girl, ['第一个参数', '第二个参数', '第三个参数'])
+
+    class Demo {
+        constructor () {
+            this.name = '我是demo'
+            this.dom = document.getElementById('btn')
+            const _this = this
+            this.dom.onclick = function () {
+                _this.printSome()
+            }
+        }
+
+        printSome () {
+            console.log(this.name)
+        }
+    }
+
+    const obj2 = new Demo()
+</script>
+</html>
